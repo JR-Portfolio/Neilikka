@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <title>Myymälät</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="../css/neilikka.css">
+    <!--Navigation start-->
+    <script>
+        $(function () {
+            $(".navibar").load("navi.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div class="navibar"></div>
+    <div class="wrapper">
+    </div>
+    <fieldset>
+        <legend>
+            <h4>Yhteydenotto</h4>
+        </legend>
+        <p></p> Voit ottaa meihin yhteyttä <p></p> * puhelimitse yksittäisiin myymälöihin<br> * sähköpostitse:
+        asiakaspalvelu@puutarhaliikeneilikka.fi<br> * alla olevalla lomakkeella<p></p>
+        <form class="sFormi"
+              action="mailto:jriimala@gmail.com?subject=Yhteydenotto pyyntö"
+              method="post"
+              enctype="text/plain">
+            <label>Nimi: <input type="text"
+                       name="nimi"
+                       required></input></label>
+            <p>
+                <label>Sähköposti: <input type="email"
+                           id="email"
+                           name="email"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.]+\.[a-z]{2,}$"
+                           placeholder="ex. firstname.lastname@domain.fi"
+                           required></input></label>
+                <p>
+                    <label for="yhteydenotto">Yhteydenoton syy: <select id="yhteydenotto"
+                                name="yhteydenpito">
+                            <option value="Ruusuja"
+                                    selected>Ruusuja</option>
+                            <option value="muu">Risuja</option>
+                        </select>
+                    </label>
+                    <p>
+                        <label>Viesti: <br>
+                            <textarea rows="5"
+                                      columns="200"
+                                      name="viesti"
+                                      required></textarea></label>
+                        <p>
+                            <label for "newsletter">Haluan tilata Puutarhaliike Neilikan uutiskirjeen<input
+                                       type="checkbox"
+                                       name="newsletter"
+                                       id="news"
+                                       selected></input>
+                            </label>
+                            <input type="submit">
+        </form>
+    </fieldset>
+</body>
+
+</html>

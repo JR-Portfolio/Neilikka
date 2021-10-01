@@ -1,0 +1,51 @@
+table {
+  border-style: solid;
+  border-width: 1px;
+}
+
+tr td th{
+  border-style: solid;
+}
+
+legend{
+  margin-left:-12px;
+}
+
+fieldset {
+  background-color:azure;
+  width:fit-content;
+  margin:auto;
+}
+label{
+  display:inline-block;
+}
+
+input[type=radio] {
+  vertical-align:left;
+  position:relative;
+}
+
+input{
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top:5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+textarea{
+padding-left: 5px;
+padding-right: 5px;
+padding-top:5px;
+padding-bottom: 5px;
+margin-left:0px;
+}
+
+.sFormi{
+  background-color:azure;
+  padding-left: 5px;
+  width:fit-content;
+  text-align:justify;
+}
+

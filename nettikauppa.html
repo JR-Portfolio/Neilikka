@@ -1,0 +1,114 @@
+<!--Tee nettikaupan rekisteröitymislomake (nettikauppa.html), jossa on seuraavat kentät:
+
+       yhteystiedot: nimi, katuosoite, postinumero, postitoimipaikka, puhelinnumero ja sähköpostiosoite (jokaiselle oma tekstikenttä)
+       salasana (salasanakenttä)
+       ”Mistä osastoista olet kiinnostunut?” (Muoti, Urheilu, Sisustaminen, Pelit, Elokuvat - valintaruutu, joista voi valita useamman)
+       Maksutapa (Sampo, Nordea, Osuuspankki, Aktia - pudotusvalikkona)
+       ”Anna palautetta.” (4-rivinen tekstialue)
+       ”Olen lukenut ja hyväksyn tuotteiden toimitusehdot.” (Kyllä / ei - radiopainike)
+       Lähetyspainike
+
+-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible"
+             content="IE=edge">
+       <title>Nettikauppa</title>
+       <meta name="description"
+             content="">
+       <meta name="viewport"
+             content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet"
+             type="text/css"
+             href="./css/nettikauppa.css" />
+</head>
+
+<body>
+       <!--[if lt IE 7]>
+              <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+              <![endif]-->
+       <form class="nettikauppa"
+              action="mailto:jriimala@gmail.com?subject=Rekisteröinti"
+              method="post"
+              enctype="text/plain">
+              <h3 style="display: table-caption; background-color: crimson;">Rekisteröintilomake</h3>
+              <label for "nimi">Nimi:</label>
+              <input type="text"
+                     name="nimi"><br>
+              <label for "katuosoite">Katuosoite:</label>
+              <input type="text"
+                     katuosoite="katuosoite"><br>
+              <label for "postinumero">Postinumero:</label>
+              <input type="number"
+                     name="postinumero"><br>
+              <label for "postitoimipaikka">Postitoimipaikka:</label>
+              <input type="text"
+                     name="postitoimipaikka"><br>
+              <label for "puhelinnumero">Puhelinnumero:</label>
+              <input type="text"
+                     name="puhelinnumero"><br>
+              <label for "maili">Sähköposti:</label>
+              <input type="text"
+                     name="maili"
+                     value="jouni.riimala@edu.omnia.fi"><br>
+              <label for "salasana">Salasana:</label>
+              <input type="password"
+                     name="salasana">
+              <label for "kiinnostunut"
+                     class="next">
+                     <h4>Mistä osastoista olet kiinnostunut?</h4>
+              </label>
+<br>
+              <label for="muoti">Muoti <input type="checkbox"
+                            class="checkbox"
+                            id="muoti"
+                            name="muoti"
+                            checked></label>
+              <label for="urheilu">Urheilu <input type="checkbox"
+                            class="checkbox"
+                            id="urheilu"
+                            name="urheilu"
+                            checked></label>
+              <label for="sisustaminen">Sisustaminen <input type="checkbox"
+                            class="checkbox"
+                            id="sisustaminen"
+                            name="sisustaminen"
+                            checked></label>
+              <label for="pelit">Pelit <input type="checkbox"
+                            class="checkbox"
+                            id="pelit"
+                            name="pelit"
+                            checked></label>
+              <label for="elokuvat">Elokuvat <input type="checkbox"
+                            class="checkbox"
+                            id="elokuvat"
+                            name="elokuvat"
+                            checked></label>
+              <p></p>
+              <label for "maksutapa"
+                     class="next">
+                     <h4>Maksutapa:</h4>
+              </label>
+              <select id="maksutapa" name="maksu">
+                     <option value="Nordea"
+                             selected>Nordea</option>
+                     <option value="Sampo"
+                             selected>Sampo</option>
+                     <option value="Osuuspankki"
+                             selected>Osuuspankki</option>
+                     <option value="Aktia"
+                             selected>Aktia</option>
+              </select>
+              <p>
+                     <input type="submit">
+       </form>
+</body>
+
+</html>

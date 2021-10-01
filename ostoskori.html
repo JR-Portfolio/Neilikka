@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <title></title>
+    <meta name="description"
+          content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="../css/neilikka-ostos.css">
+</head>
+
+<body>
+    <!--Sivu jaettu kahteen diviin eli main ja ostoskoriin-->
+    <div class="row">
+        <div class="column">
+            <h3 class="tuotteet">Tuotteet</h3>
+            <div class="products">
+                <div class="content">
+                    <img class="kuva"
+                         src="../img/Inkkari.jpg"
+                         width="110px"
+                         height="90px"
+                         alt="Scout" />
+                    <p class="kuvaus">Indian Scout 2018</p>
+                    <label for
+                           hinta><input type="number"
+                               class="hinta"
+                               name="inp-hinta"
+                               value="21000"></input> €</label>
+                    <input type="number"
+                           class="maara"
+                           name="inp-maara"
+                           value="1">kpl</input>
+                    <button class="ostosnappi">Osta</button>
+                </div>
+                <div class="content">
+                    <img class="kuva"
+                         src="../img/chief-home-intl.jpg"
+                         width="110px"
+                         height="90px"
+                         alt="Chief" />
+                    <p class="kuvaus">Indian Chief 2021</p>
+                    <label for
+                           hinta><input type="number"
+                               class="hinta"
+                               name="inp-hinta"
+                               value="31000"></input> €</label>
+                    <input type="number"
+                           class="maara"
+                           name="maara"
+                           value="1">kpl</input>
+                    <button class="ostosnappi">Osta</button>
+                </div>
+            </div>
+        </div>
+        <!-- ostoskorin sisältö -->
+        <div class="column">
+            <h3 class="ostoskori otsikko"><u>Ostoskori</u></h3>
+            <div id = "topRight">
+                <button class="totalBox center kassaNappi nappi2"><strong>Kassalle</strong></button>
+                <div class="topRightYht">
+                    <strong id = "totalInput">Yhteensä </strong>
+                </div>
+            </div>
+
+            <div class="kortit">
+                <div class="kortti-rivi"></div>
+                <!--<div class="kortti-kuva" src="../img/chief-home-intl.jpg"></div>
+                <div class="kortti-kuvaus">Chief</div>
+                <div class="kortti-hinta">10000</div>
+                <div class="kortti-maara">1</div>-->
+                </div>
+            </div>
+        </div>
+    <div class="clear"></div>
+    <p></p>
+    <script src="../../js/kori.js" async></script>
+</body>
+
+</html>

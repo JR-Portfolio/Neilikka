@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
+<!--Hamburger
+                <button type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#nabvarNav"
+                        class="navbar-toggler"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span></button>
+       <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Page 1</a></li>
+                  <li><a href="#">Page 2</a></li>
+                  <li><a href="#">Page 3</a></li>
+                </ul>
+
+                -->
+
+
+<html>
+
+<head>
+    <title>Nelikan Kotisivut</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="../css/neilikka.css">
+    <!--Below one fixed dropdown problems-->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-toggle").dropdown();
+        });
+    </script>
+</head>
+
+<body>
+    <!--Navigation start-->
+    <nav class="navbar navbar-inverse text-center">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"
+                   href="#">Neilikka</a>
+                   <button class="navbar-toggle collapsed"
+                           data-toggle="collapse"
+                           data-target="#myDrops">
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                        </button>
+                </div>
+            <div class="collapse navbar-collapse"
+                 id="myDrops">
+
+            <ul class="nav navbar-nav mx-auto">
+                <li class="active"><a href="http://localhost/Omnia/html/Neilikka/index.html">Etusivu</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       href="#">Tuotteet <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://localhost/omnia2/html/Neilikka/Sisäkasvit/">Sisäkasvit</a></li>
+                        <li><a href="http://localhost/omnia2/html/Neilikka/Ulkokasvit">Ulkokasvit</a></li>
+                        <li><a href="http://localhost/omnia2/html/Neilikka/Valineet/">Työkalut</a></li>
+                        <li><a href="http://localhost/omnia2/html/Neilikka/Hoito/">Kasvien hoito</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="http://localhost/omnia2/html/Neilikka/Myymalat.html">Myymälät</a></li>
+                <li><a href="http://localhost/omnia2/html/Neilikka/Me.html">Tietoa meistä</a></li>
+                <li><a href="http://localhost/omnia2/html/Neilikka/yhteydenotto.html">Ota yhteyttä</a></li>
+                </ul>
+                
+                
+                <ul class = "md-5 loggari" > 
+                    <a class = "nav-link" href="http://localhost/omnia2/web/html/Neilikka/Hallinta/login.php">Login /</a>
+                    <a class = "nav-link" href="http://localhost/omnia2/web/html/Neilikka/Hallinta/register.php"> Register</a>
+                </ul>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!--Navigation end-->
+
+<!--
+
+.nav-top-right {
+  align-items: flex-end;
+}
+
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/login') }}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/register') }}">Register</a>
+      </li>
+    </ul>
+-->
+
+
+
+</body>
+
+</html>
