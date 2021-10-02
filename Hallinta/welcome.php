@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </head>
     <body>
 
-        <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
+        <h1>Welcome <?php echo $_SESSION['firstName']; ?></h1>
         <fieldset>
             <legend>Kryptot</legend>
             <ol id = "all">

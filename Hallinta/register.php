@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Include config file
 require_once "config.php";
 
@@ -8,6 +9,26 @@ $username_err = $password_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+
+    //Validate first name 
+    if (empty(trim($_GET['firstName']))){
+        $firstName_err = "Please enter a first name";
+    } else if(!preg_match('/^[a-aA-Z]/', trim($_POST['firstName']))){
+        $firstName_err = "First name can include only letters.";
+    }else{
+        $_SESSION['fisrtName'] = $firstName;
+    }
+
+    //Validate last name
+    if (empty(trim($_GET['lastName']))){
+        $lastName_err = "Please enter a last name";
+    } else if(!preg_match('/^[a-aA-Z]/', trim($_POST['lastName']))){
+        $lastName_err = "Last name can include only letters.";
+    }else{
+        $_SESSION['lastName'] = $lastName;
+    }
+
 
     // Validate username
     if(empty(trim($_POST["username"]))){
@@ -111,6 +132,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+            <div class="form-group">
+                <label>Firstname</label>
+                <input type="text" name="firstName" class="form-control <?php echo (!empty($firstName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <span class="invalid-feedback"><?php echo $firstName_err; ?></span>
+            </div>
+
+            <div class="form-group">
+                <label>Lastname</label>
+                <input type="text" name="lastName" class="form-control <?php echo (!empty($lastName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <span class="invalid-feedback"><?php echo $lastName_err; ?></span>
+            </div>
+
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">

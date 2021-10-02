@@ -9,8 +9,7 @@
 $un = "root";
 $ps = "";
 $server = "localhost";
-$database = "jrla";
-$table = "moto";
+$database = "jrla"; 
 
 //show all erros if any
 ini_set('display_errors', 1);
