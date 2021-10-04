@@ -64,8 +64,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
     else
     {
+        debug_to_console("email validated, checking if email already registered");
+        $checkEmail = "SELECT email FROM users WHERE email = '$email'";
+        $result = mysqli_query($link, $checkEmail) or die("checking email failed");
+        mysqli_error($link);
 
-        debug_to_console("email validated");
+        if ($result && ($checkEmail === $email))
+        {
+            $email_err = "Email already registered";
+        }
+        else
+        {
+            debug_to_console("Entered email not found, ok to proceed");
+        }
 
         // Validate username
         if (empty(trim($_POST["username"])))
@@ -79,41 +90,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
         else
         {
-            debug_to_console("username validated");
-            // Prepare a select statement
-            $sql = "SELECT id FROM users WHERE username = ?";
+            debug_to_console("Username validated, checking dublicate ones");
 
-            if ($stmt = mysqli_prepare($link, $sql))
-            {
-                // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "s", $param_username);
-
-                // Set parameters
-                $param_username = trim($_POST["username"]);
-
-                // Attempt to execute the prepared statement
-                if (mysqli_stmt_execute($stmt))
-                {
-                    /* store result */
-                    mysqli_stmt_store_result($stmt);
-
-                    if (mysqli_stmt_num_rows($stmt) == 1)
-                    {
-                        $username_err = "This username is already taken.";
-                        debug_to_console($username_err);
-                    }
-                    else
-                    {
-                        $username = trim($_POST["username"]);
-                    }
-                }
-                else
+            $sql = "SELECT id FROM users WHERE username = '$username'";
+            $checkUsername = mysqli_query($link, $sql) or die ("Checking username failed");mysqli_error();
+            if ($checkUsername->num_rows > 0){
+                    $username_err = "This username is already taken.";
+                    debug_to_console($username_err);
+            }
+            else
                 {
                     echo "Oops! Something went wrong. Please try again later.";
                 }
-
-                // Close statement
-                mysqli_stmt_close($stmt);
             }
         }
 
@@ -149,11 +137,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
 
         // Check input errors before inserting in database
-        if (empty($username_err) && empty($password_err) && empty($confirm_password_err))
+        if (empty($firstName_err) && (empty($lastName_err) && (empty($email_err) &&
+        (empty($username_err) && empty($password_err) && empty($confirm_password_err)))))
         {
-            debug_to_console($username_err);
-            debug_to_console($password_err);
-            debug_to_console($confirm_password_err);
             $password = password_hash($password, PASSWORD_BCRYPT);
             $token = $_SESSION['token'];
 
