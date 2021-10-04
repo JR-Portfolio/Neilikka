@@ -9,12 +9,11 @@ color: var(--gray);
 */
 
 .nav-top-right {
-    display:inline-flex;
+    display: inline-flex;
     align-items: flex-end;
-  }
-  
+}
 
-.loggari{
+.loggari {
     margin-top: 10px;
 }
 
@@ -28,6 +27,7 @@ color: var(--gray);
     float: right;
     width: 40%;
 }
+
 #btn-poista {
     float: right;
     margin-right: 10px;
@@ -76,7 +76,9 @@ color: var(--gray);
     right: 0;
 }
 
+
 /*Neilikka Image gallery specific changes*/
+
 .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -128,7 +130,9 @@ div.hinta {
     clear: both;
 }
 
+
 /*Etusivu ja tietoja meistä. Määritykset säätää tekstit nav barin mukaisesti, hieman hc:ta mukana*/
+
 div.blocktext {
     display: block;
     float: right;
@@ -161,7 +165,7 @@ div.Myymalat {
     padding-left: 20px;
 }
 
-div.Myymalat > th p {
+div.Myymalat>th p {
     margin-left: 20px;
     text-align: left;
 }
@@ -233,6 +237,7 @@ label {
     padding-left: 15px;
     text-indent: -15px;
 }
+
 input {
     width: 60px;
     height: 13px;

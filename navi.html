@@ -26,17 +26,14 @@ https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
 <head>
     <title>Nelikan Kotisivut</title>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="../css/neilikka.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/neilikka.css">
     <!--Below one fixed dropdown problems-->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $(".dropdown-toggle").dropdown();
         });
     </script>
@@ -47,50 +44,42 @@ https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
     <nav class="navbar navbar-inverse text-center">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand"
-                   href="#">Neilikka</a>
-                   <button class="navbar-toggle collapsed"
-                           data-toggle="collapse"
-                           data-target="#myDrops">
+                <a class="navbar-brand" href="#">Neilikka</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myDrops">
                            <span class="icon-bar"></span>
                            <span class="icon-bar"></span>
                            <span class="icon-bar"></span>
                         </button>
-                </div>
-            <div class="collapse navbar-collapse"
-                 id="myDrops">
+            </div>
+            <div class="collapse navbar-collapse" id="myDrops">
 
-            <ul class="nav navbar-nav mx-auto">
-                <li class="active"><a href="http://localhost/Omnia/html/Neilikka/index.html">Etusivu</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle"
-                       data-toggle="dropdown"
-                       href="#">Tuotteet <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="http://localhost/omnia2/html/Neilikka/Sisäkasvit/">Sisäkasvit</a></li>
-                        <li><a href="http://localhost/omnia2/html/Neilikka/Ulkokasvit">Ulkokasvit</a></li>
-                        <li><a href="http://localhost/omnia2/html/Neilikka/Valineet/">Työkalut</a></li>
-                        <li><a href="http://localhost/omnia2/html/Neilikka/Hoito/">Kasvien hoito</a></li>
-                    </ul>
-                </li>
+                <ul class="nav navbar-nav mx-auto">
+                    <li class="active"><a href="http://localhost/Neilikka/index.html">Etusivu</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuotteet <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://localhost/Neilikka/Sisäkasvit/">Sisäkasvit</a></li>
+                            <li><a href="http://localhost/Neilikka/Ulkokasvit">Ulkokasvit</a></li>
+                            <li><a href="http://localhost/Neilikka/Valineet/">Työkalut</a></li>
+                            <li><a href="http://localhost/Neilikka/Hoito/">Kasvien hoito</a></li>
+                        </ul>
+                        <li><a href="http://localhost/Neilikka/Myymalat.html">Myymälät</a></li>
+                        <li><a href="http://localhost/Neilikka/Me.html">Tietoa meistä</a></li>
+                        <li><a href="http://localhost//Neilikka/yhteydenotto.html">Ota yhteyttä</a></li>
+                </ul>
 
-                <li><a href="http://localhost/omnia2/html/Neilikka/Myymalat.html">Myymälät</a></li>
-                <li><a href="http://localhost/omnia2/html/Neilikka/Me.html">Tietoa meistä</a></li>
-                <li><a href="http://localhost/omnia2/html/Neilikka/yhteydenotto.html">Ota yhteyttä</a></li>
+
+                <ul class="mr-auto loggari">
+                    <a class="nav-link" href="http://localhost/Neilikka/Hallinta/login.php">Login /</a>
+                    <a class="nav-link" href="http://localhost/Neilikka/Hallinta/register.php"> Register</a>
                 </ul>
-                
-                
-                <ul class = "md-5 loggari" > 
-                    <a class = "nav-link" href="http://localhost/omnia2/web/html/Neilikka/Hallinta/login.php">Login /</a>
-                    <a class = "nav-link" href="http://localhost/omnia2/web/html/Neilikka/Hallinta/register.php"> Register</a>
                 </ul>
-            </ul>
-        </div>
+            </div>
         </div>
     </nav>
     <!--Navigation end-->
 
-<!--
+    <!--
 
 .nav-top-right {
   align-items: flex-end;
