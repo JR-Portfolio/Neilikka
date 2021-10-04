@@ -1,0 +1,11 @@
+[10.13] Jukka Aula
+i rekisteröityminen
+ii rekisteröitymisen sähköpostivalidointi
+iii kirjautuminen
+iv sivujen suojaaminen kirjautumattomalta käyttäjältä
+v sivustolta poistuminen eli uloskirjautuminen
+vi salasanan resetointi eli unohtunut salasana
+vii salasanan vaihtaminen
+viii profiilisivu
+ix administraattorin toiminnallisuus, esim. käyttäjien pääsyn estäminen / aktivoiminenx muista minut -toiminnallisuus
+
