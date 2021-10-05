@@ -11,8 +11,8 @@ body {
     margin: auto;
 }
 
-fieldset {
-    margin: auto;
+.center {
+    margin: auto !important;
     border: 1px solid;
     width: 40%;
     height: fit-content;
