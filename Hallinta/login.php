@@ -17,10 +17,7 @@
     <div class="App">
         <div class="vertical-center">
             <div class="inner-block">
-
                 <body>
-
-
                     <?php
                     // Initialize the session
                     session_start();
@@ -51,6 +48,8 @@
                         else
                         {
                             $username = trim($_POST["username"]);
+                            $_SESSION['username'] = $username;
+                            echo $_SESSION['username'];
                         }
 
                         // Check if password is empty
@@ -168,16 +167,31 @@
 
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username;?>">
                                     <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                                    <span class="valid-feedback">Looks good</span>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                                     <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                                    <span class="valid-feedback">Looks good</span>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="invalidCheck" required>
+                                        <label class="form-check-label" for="invalidCheck">Remember</label>
+                                        <div class="invalid-feedback">
+                                            You must agree before submitting.
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Login">
+                                    <p></p>
+                                        <a href = "newPassword.php">Forgot password?</a>
                                 </div>
                                 <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
                             </form>
