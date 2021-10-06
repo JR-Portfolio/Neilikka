@@ -3,86 +3,81 @@ if (session_status() == PHP_SESSION_NONE)
 {
     session_start();
 }
+$token = $_SESSION['token'];
 
 require 'config.php';
+require 'mailerConfig.php';
+
 
 function debug_to_console($data)
 {
     echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
 }
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $new_password_err = $password_err = $username_err = "";
-    $username = mysqli_real_escape_string($link, $_POST['username']);
+
     $password = mysqli_real_escape_string($link, $_POST['password']);
     $newPassword = mysqli_real_escape_string($link, $_POST['new_password']);
 
-    $all = $username . ", " . $password . ", " . $newPassword;
+    $all = $password . ", " . $newPassword;
     $generatorFlag = 0;
-    //password generator
-    if (isset($_POST['generator']))
+
+    //Check if token can be found from the table.
+    $readToken = "SELECT email FROM users WHERE token = '$token' LIMIT 1";
+    $result = mysqli_query($link, $readToken) or die('Reading token failed ' . $readToken);
+    mysqli_error($link);
+    $email = mysqli_fetch_assoc($result)['email'];
+
+    debug_to_console('Email value ' . $email . ' found.');
+    if ($email)
     {
-        $generatorFlag = 1;
-        debug_to_console("Generator clicked");
-
-        $str = date('d-mm-yyyy') . "_omnia" . "php-mysql-javascript-html-css-azure-xampp";
-        debug_to_console($str);
-
-        $generatedPSW = substr(str_shuffle($str), 0, 5);
-        debug_to_console($generatedPSW);
-
-        if (empty($username))
+        //password generator
+        if (isset($_POST['generator']))
         {
-?>
-            <script>
-                alert("Your new psw: <?php echo $generatedPSW; ?> , set your username..");
-            </script><?php
-                    }
-                    else
-                    { ?>
-            <script>
+            $generatorFlag = 1;
+            debug_to_console("Generator clicked");
+
+            $str = date('d-mm-yyyy') . "_omnia" . "php-mysql-javascript-html-css-azure-xampp";
+            debug_to_console($str);
+
+            $generatedPSW = substr(str_shuffle($str), 0, 5);
+            debug_to_console($generatedPSW);
+
+?> <script>
                 alert("Your new psw: <?php echo $generatedPSW; ?>");
-            </script><?php
-                    }
-                }
-                else
+            </script>
+            <?php
+        }
+
+        //Manual password update
+        else
+        {
+            if (!empty($password) && !empty($newPassword))
+            {
+                debug_to_console("Password fields not empty");
+                $secretPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+                $sql = "UPDATE users set password = '$secretPassword'  WHERE email = '$email'";
+                debug_to_console($sql);
+                $result = mysqli_query($link, $sql) || die('Updating password failed') . mysqli_error($link);
+                if ($result)
                 {
-                    debug_to_console("Submit clicked");
-
-                    Debug_to_console($all);
-
-                    if (!empty($username) && !empty($password) && !empty($newPassword))
-                    {
-                        debug_to_console("Fields updated");
-                        $secretPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-                        $sql = "UPDATE users set password = '$secretPassword'  WHERE username = '$username'";
-                        debug_to_console($sql);
-                        $result = mysqli_query($link, $sql) || die('Updating password failed') . mysqli_error($link);
-                        if ($result)
-                        {
-                            debug_to_console("Opening login.php");
-                            header("location: login.php");
-                        ?>
-                <script>
-                    setTimeout(() => {
-                        alert("Password changed");
-                        window.location.href = "login.php";
-                    }, 2500);
-                </script><?php
+                    debug_to_console("Opening login.php");
+                    header("location: login.php");
+            ?>
+                    <script>
+                        setTimeout(() => {
+                            alert("Password changed");
+                            window.location.href = "login.php";
+                        }, 2500);
+                    </script><?php
+                            }
                         }
                     }
                 }
             }
-                            ?>
-<!--<script>
-    alert("Password changed");
-    setTimeout(() => {
-        window.location.href = "login.php";
-    }, 2500);
-</script>-->
+                                ?>
 
 <!DOCTYPE html>
 
@@ -115,13 +110,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             <div class="inner-block">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="needs_validation" novalidate>
 
-                    <div class="form-group">
+
+                    <!--<div class="form-group">
                         <label>Username</label>
                         <input type="username" name="username" autofocus class="form-control" value="<?php echo (isset($username)) ? $username : ''; ?>">
                         <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         <span class="valid-feedback">Looks ok ?></span>
-                    </div>
-
+                    </div>-->
 
                     <div class="form-group">
                         <label>Password</label>

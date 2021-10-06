@@ -189,8 +189,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $pos = strpos($email, "@");
             $domain = substr($email, $pos + 1);
             header("location: thx.php");
-
-
         }
     }
     else

@@ -21,11 +21,11 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mailPSW = password_hash($mail->Password, PASSWORD_BCRYPT);
     $mail->SMTPAuth   = TRUE;
     // Generate random activation token
-    $token = md5(rand().time());
-    $_SESSION['token'] = $token;
+    //$token = md5(rand().time());
+    //$_SESSION['token'] = $token;
     $mail->IsHTML(true);
     $mail->SetFrom($mail->Username, "From");
-    $mail->AddAddress("jriimala@gmail.com", "Jouni R.");
+    //$mail->AddAddress("jriimala@gmail.com", "Jouni R.");
 
 //$mail->AddReplyTo("reply-to-email@domain", "reply-to-name");
 //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");
