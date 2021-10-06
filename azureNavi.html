@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nelikan Kotisivut</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/neilikka.css">
+    <!--Below one fixed dropdown problems-->
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-toggle").dropdown();
+        });
+    </script>
+</head>
+
+<body>
+    <!--Navigation start-->
+    <nav class="navbar navbar-inverse text-center">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Neilikka</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myDrops">
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                        </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myDrops">
+
+                <ul class="nav navbar-nav mx-auto">
+                    <li class="active"><a href="index.html">Etusivu</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuotteet <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://jounir.azurewebsites.net/Sisäkasvit/">Sisäkasvit</a></li>
+                            <li><a href="https://jounir.azurewebsites.net/Ulkokasvit">Ulkokasvit</a></li>
+                            <li><a href="https://jounir.azurewebsites.net/Valineet/">Työkalut</a></li>
+                            <li><a href="https://jounir.azurewebsites.net/Hoito/">Kasvien hoito</a></li>
+                        </ul>
+                        <li><a href="https://jounir.azurewebsites.net/Myymalat.html">Myymälät</a></li>
+                        <li><a href="https://jounir.azurewebsites.net/Me.html">Tietoa meistä</a></li>
+                        <li><a href="https://jounir.azurewebsites.net/yhteydenotto.php">Ota yhteyttä</a></li>
+                </ul>
+
+
+                <ul class="mr-auto loggari">
+                    <a class="nav-link" href="https://jounir.azurewebsites.net/Hallinta/login.php">Login /</a>
+                    <a class="nav-link" href="https://jounir.azurewebsites.net/Hallinta/register.php"> Register</a>
+                </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
+
+</html>
