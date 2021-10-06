@@ -1,0 +1,83 @@
+
+PHP:
+- Merkkijono taulukoksi explode komennolla.
+- Kun lomake lähetetään,tiedot pyyhkiytyy lomakkeelta. Näitä saa kuitenkin takaisin tyyliin $ret = isset($_POST['xx']);
+- trim muuttujalla voi siivota  ylimääräisiä sulkuja ym pois.
+- in_array funktio jolla voi tarkistaa sisältyykö muuttuja käyttäjän postmaamiin kenttiin / arvoihin ...
+- php parametrin voi antaa javascript funktiolle as is...
+- preg_match :lla voi suodattaa merkkijonoja ..
+- strip_tags poistaa tagit.
+- real_escape_string :llä merkkijonon puhdistus.
+- Jos palvelimelle lähetetään formi ajax:lla (js) niin tiedot eivät pyyhkiydy clientilta.
+Kaikki lomakkeen kentät voi lähettää samalla kutsulla post muuttujilla.
+-implode purkaa arrayn merkkijonoksi, explode toimii päinvastoin.
+- Filters komento filter_list()
+- echo$POST['$kentta'] ?? ''lyhyempi tapaesittää ternary operaattori (tämä sisältää myös isset:n)
+- Funktioihin voisi laittaa return;:n jos haluaa riippumatta siittä palautetaanko vai ei.
+- file_put_contents("file.txt, $msg. "\n", FILE_APPEND);
+- var_export esittää taulukon taulukon näköisen, implode purkaa merkkijonoksi.
+- https://www.php.net/manual/en/function.basename.php, basenamellä tiedoston nimi.
+  esim. $filename = basename(__FILE__);
+
+Debugger:
+__FUNCTION__  // kertoo missä ja mistä päin kutsuttu,
+__FILE__ muuttujat antavat lisäarvoa debuggaukseen.
+- PHP:ssa natiivi debugger functio on debug_backtrace()
+
+- Poista tagit kaikista $_POST kentistä:
+    #1 $POST = array_map('strip_tags', $_POST);
+
+    #2 function filtteri($n){
+        return strip_tags($n);
+    }
+
+    #3 function filtteri($n){
+        global $yhteys;
+
+        tietoturvavarmistus jolla trimmattaa whitespacet, poistetaan tagit ja
+        estetään vahingolliset lisäys lausekkeiden lisäämiset.
+
+        $n= $yhteys->real_escape_string(strip_tags($n));
+        return;
+    }
+
+function debuggeri($arvo){
+if (defined('DEBUG') and !DEBUG) return;
+$msg = is_array($arvo) ? var_export($arvo,true) : $arvo;
+$msg = date("Y-m-d H:i:s")." ".$msg;
+file_put_contents("debug_log.txt", $msg."\n", FILE_APPEND);
+}
+
+
+Array funktiot php.net:ssä esim array_filter, array_map, array_count_values.
+
+Developer consoliin voi echottaa alla olevan help - funktion kautta.
+ //Debug
+        function debug_to_console($data)
+        {
+            echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
+        }
+
+Käyttö:
+debug_to_console("Test");
+This will create an output like this:
+
+Debug Objects: Test
+
+Cookies:
+set_cookie();
+
+
+MYSQL:
+- Jos määrittelee enumin kenttään ja sijoittaa pituus/arvot kenttään arvot '' pilkulla erotettuna käyttäjä voi asettaa vain näitä arvoja.
+- SET määritellään samoin kuin enum.
+- SHOW COLUMNS - komennolla voi hakea
+
+
+CSS:
+-
+
+JS:
+- javascriptillä voit suoraan lähettää lomakkeen document.forms['error_form'].submit() komennolla.
+- js/validation_api.asp (w3school).
+- Json response browseriin console logiin -> console.log(JSON.stringify(data));

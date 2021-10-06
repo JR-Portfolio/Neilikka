@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<!--
 <head>
     <title>Tietoa meistä</title>
     <meta charset="utf-8">
@@ -9,25 +10,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <!--<link rel="stylesheet" href="css/neilikka.css">-->
     <!--Navigation start-->
-    <script>
+    <!--<script>
         $(function() {
             $(".navibar").load("navi.html");
         });
     </script>
-</head>
+</head>-->
+<?php
+require 'inc/header.php';
+?>
 
 <body>
     <div class="navibar"></div>
 
-    <!--<fieldset>
-            <legend>
-                <h4>Yhteydenotto</h4>
-            </legend>-->
     <div class="container">
-
-        <h3 class="mt-5">
+        <!--<fieldset class="scheduler-border">
+        <legend class="scheduler-border">Yhteydenotto</legend>-->
+        <h3 class="my-5">
             Yhteydenotto
         </h3>
         <span class="sm">Puhelimitse myymälöihin, asiakaspalvelu@puutarhaliikeneilikka.fi
@@ -63,10 +64,10 @@
                 <label for "newsletter " class="form-check-label">Haluan tilata Puutarhaliike Neilikan uutiskirjeen</label>
             </div>
 
-            <div>
-                <button class="btn mt-3 btn btn-primary " type="submit">Sign in</button>
-            </div>
+            <button class="btn mt-3 btn btn-primary " type="submit">Sign in</button>
+
         </form>
+        <!--</fieldset>-->
     </div>
 </body>
 

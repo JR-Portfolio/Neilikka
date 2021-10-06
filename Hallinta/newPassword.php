@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="username" name="username" class="form-control" value="<?php echo (isset($username)) ? $username : ''; ?>">
+                        <input type="username" name="username" autofocus class="form-control" value="<?php echo (isset($username)) ? $username : ''; ?>">
                         <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         <span class="valid-feedback">Looks ok ?></span>
                     </div>
