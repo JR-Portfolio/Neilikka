@@ -6,10 +6,12 @@
 
 <?php
 
+define('URL', 'http://localhost/Neilikka');
+
 $un = "root";
 $ps = "";
 $server = "localhost";
-$database = "jrla"; 
+$database = "jrla";
 
 //show all erros if any
 ini_set('display_errors', 1);
@@ -23,7 +25,7 @@ $link = new mysqli($server, $un, $ps, $database);
 if ($link->connect_error) {
     print "connection error";
     die("Connection failed: " . $link->connect_error);
-} 
+}
 
 //print "connected";
 

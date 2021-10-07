@@ -15,13 +15,23 @@ function debug_to_console($data)
     echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
 }
 
-$expirationTime = $_SESSION['verificationTime'] + 5;
-$now = date('i');
-if ($now >  $expirationTime){
+$verificationStarted = $_SESSION['startTime'];
+$now = Date('H:i');
+
+$array1 = explode(':', $verificationStarted);
+$array2 = explode(':', $now);
+
+$minutes1 = ($array1[0] * 60.0 + $array1[1]);
+$minutes2 = ($array2[0] * 60.0 + $array2[1]);
+$diff = $minutes2 - $minutes1;
+debug_to_console($diff);
+
+if ($diff > 5){
     $expirationTime_err = "Verification time expired, try again";
     array_push($errors, $expirationTime_err);
     header('location: expired.php');
     require 'errors.php';
+exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
