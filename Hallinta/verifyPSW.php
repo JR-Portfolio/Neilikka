@@ -63,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
         else
         {
-            $time  = date('i');
-            $_SESSION['verificationTime'] = $time;
+            $startTime  = date('H:i');
+            $_SESSION['startTime'] = $startTime;
             debug_to_console("mail sent");
             // Redirect to login page
             //$pos = strpos($email, "@");
