@@ -30,7 +30,5 @@ $mail = new PHPMailer\PHPMailer\PHPMailer();
 //$mail->AddReplyTo("reply-to-email@domain", "reply-to-name");
 //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");
   $mail->Subject = "Email verification";
-  $content = 'Click on the activation link to verify your email. <br><br>
-<a href="http://localhost/Neilikka/Hallinta/user_verificatIon.php?token='.$token.'">Click here to verify email</a>';
 
 
