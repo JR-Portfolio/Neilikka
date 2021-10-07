@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<head><title>Reset Password - verify email</title></head>
 <?php
 function debug_to_console($data)
 {
@@ -11,6 +11,7 @@ function debug_to_console($data)
 
 require 'config.php';
 require '../inc/header.php';
+
 $email = $email_err = "";
 $errors = [];
 
@@ -91,7 +92,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         </div>
     </div>
 
-    <script src=" " async defer></script>
 </body>
-
 </html>
