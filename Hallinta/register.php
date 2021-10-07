@@ -11,13 +11,11 @@ function debug_to_console($data)
     echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
 }
 
-
 // Define variables and initialize with empty values
 $firstName = $lastName = $email = $userName = $password = $confirm_password = "";
 $firstName_err = $lastName_err = $email_err =  $username_err = $password_err = $confirm_password_err = $mailSending_err = "";
 
 //$mail = new PHPMailer\PHPMailer\PHPMailer();
-
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -70,6 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($email))
     {
         debug_to_console("empty email field");
+        $email_err = "empty field";
+        array_push($errors, $email_err);
     }
 
     else if (!empty($email) && (filter_var($email, FILTER_VALIDATE_EMAIL) === false))
@@ -99,9 +99,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
     // Validate username
-    if (empty($userName))
+    if ((strlen($userName) < 4) || (strlen($userName) > 10 ) )
     {
-        $username_err = "Please enter a username.";
+        $username_err = "Username length need to be between 5-10 chars.";
         array_push($errors, $username_err);
         debug_to_console($username_err);
     }
@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         if (empty($password_err) && ($password != $confirm_password))
         {
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "Password did not match or password was empty.";
             array_push($errors, $confirm_password_err);
             debug_to_console($password_err);
         }
@@ -174,9 +174,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $execute = mysqli_query($link, $sql) or die('sql insert into failed, ' . mysqli_error($link));
         // Attempt to execute the prepared statement
-        debug_to_console("Insert into executed");
+        debug_to_console("Insert into executed " .$token);
 
-        debug_to_console($token);
         //send mail verification
 
         $content = 'Click on the activation link to verify your email. <br><br>
@@ -232,7 +231,7 @@ require "../inc/header.php";
 
                     <div class="form-group">
                         <label>Firstname</label>
-                        <input type="text" name="firstName" class="form-control <?php echo (!empty($firstName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstName; ?>">
+                        <input type="text" name="firstName" class="form-control" <?php echo (!empty($firstName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstName; ?>">
                         <span class="invalid-feedback"><?php echo $firstName_err; ?></span>
                     </div>
 
@@ -246,32 +245,32 @@ require "../inc/header.php";
                         <label>Email</label>
                         <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
-                        <span class="valid-feedback">Looks good</span>
+
                     </div>
 
                     <div class="form-group">
                         <label>Username</label>
                         <input type="text" name="userName" class="form-control" value="<?php echo $userName; ?>">
                         <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                        <span class="valid-feedback">Looks good</span>
                     </div>
+
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" name="password" class="form-control" value="">
                         <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                        <span class="valid-feedback">Looks good</span>
                     </div>
+
                     <div class="form-group">
                         <label>Confirm Password</label>
                         <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="">
                         <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-                        <span class="valid-feedback">Looks good</span>
                     </div>
+
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <input type="reset" class="btn btn-secondary ml-2" value="Reset">
                     </div>
-                    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+                    <span>Already have an account? <a href="login.php">Login here</a>.</span>
                 </form>
             </div>
         </div>
