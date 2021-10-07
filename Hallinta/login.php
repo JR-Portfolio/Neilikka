@@ -23,6 +23,12 @@
                     // Initialize the session
                     session_start();
 
+                    function debug_to_console($data)
+                    {
+                        echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
+                    }
+
+
                     // Check if the user is already logged in, if yes then redirect him to welcome page
                     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
                     {
@@ -40,7 +46,6 @@
                     // Processing form data when form is submitted
                     if ($_SERVER["REQUEST_METHOD"] == "POST")
                     {
-
                         // Check if username is empty
                         if (empty(trim($_POST["username"])))
                         {
@@ -101,6 +106,21 @@
                                                 $_SESSION["firstName"] = $firstName;
                                                 echo $_SESSION["firstName"];
                                                 $_SESSION["username"] = $username;
+
+$cookie1 ="username";
+
+                                                if (isset($_POST['cb']))
+                                                {
+                                                    debug_to_console('cb-checked');
+                                                    setcookie('remember', 'checked', time() + (86400 * 30));
+                                                    setcookie('username', $username, time() + (86400 * 30));
+                                                    setcookie('password', $password, time() + (86400 * 30));
+                                                }
+
+
+                                                echo "remember cookie has a value " . $_COOKIE['remember'];
+                                                echo "Username cookie has a value " . $_COOKIE['username'];
+                                                echo "Password cookie has a value " . $_COOKIE['password'];
 
                                                 // Redirect user to welcome page
                                                 header("location: welcome.php");
@@ -181,24 +201,22 @@
 
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="invalidCheck">
+                                        <input class="form-check-input" type="checkbox" name="cb" id="invalidCheck">
                                         <label class="form-check-label" for="invalidCheck">Remember</label>
-                                        <div class="invalid-feedback">
-                                            You must agree before submitting.
-                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Login">
-                                    <p></p>
-                                    <a href="verifyPSW.php">Forgot password?</a>
-                                </div>
-                                <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-                            </form>
                         </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Login">
+                            <p></p>
+                            <a href="verifyPSW.php">Forgot password?</a>
+                        </div>
+                        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+                        </form>
             </div>
         </div>
+    </div>
     </div>
 
 </body>

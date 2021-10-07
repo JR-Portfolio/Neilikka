@@ -13,10 +13,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 <!DOCTYPE html>
 <html>
 
-<?php require '../inc/header.php';?>
+<?php require '../inc/header.php'; ?>
 
 <head>
-<title>Nelikan Kotisivut</title>
+    <title>Nelikan Kotisivut</title>
     <link rel="stylesheet" href="../css/neilikka.css">
     <link rel="stylesheet" href="css/welcome.css">
 </head>
@@ -29,10 +29,29 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 
 <body>
 
+    <?php
+    function debug_to_console($data)
+    {
+        echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
+    }
+
+    if (!$_COOKIE['username'] && !$_COOKIE['password'])
+    {
+        debug_to_console('remember cookie not set');
+    }
+    else
+    {
+        $username = $_COOKIE['username'];
+    }
+
+
+    ?>
+
+
     <div class="navibar"></div>
     <h1>Welcome <?php echo $_SESSION['firstName']; ?></h1>
-    <fieldset class = "center">
-        <legend>Kryptot</legend>
+    <fieldset class="center">
+        <legend><?php echo $username . ' ';?> Kryptot</legend>
         <ol id="all">
 
         </ol>
