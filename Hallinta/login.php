@@ -13,9 +13,11 @@
 </head>
 
 <body>
+
     <div class="App">
         <div class="vertical-center">
             <div class="inner-block">
+
                 <body>
                     <?php
                     // Initialize the session
@@ -166,20 +168,20 @@
 
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username;?>">
+                                    <input type="text" name="username" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                                     <span class="invalid-feedback"><?php echo $username_err; ?></span>
                                     <span class="valid-feedback">Looks good</span>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                                    <input type="password" name="password" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                                     <span class="invalid-feedback"><?php echo $password_err; ?></span>
                                     <span class="valid-feedback">Looks good</span>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="invalidCheck" required>
+                                        <input class="form-check-input" type="checkbox" id="invalidCheck">
                                         <label class="form-check-label" for="invalidCheck">Remember</label>
                                         <div class="invalid-feedback">
                                             You must agree before submitting.
@@ -190,7 +192,7 @@
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Login">
                                     <p></p>
-                                        <a href = "verifyPSW.php">Forgot password?</a>
+                                    <a href="verifyPSW.php">Forgot password?</a>
                                 </div>
                                 <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
                             </form>
@@ -198,7 +200,8 @@
             </div>
         </div>
     </div>
+
 </body>
-<script src="" async defer></script>
+<script src="validoi.js" async defer></script>
 
 </html>

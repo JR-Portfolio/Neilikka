@@ -2,17 +2,19 @@
 session_start();
 require 'mailerConfig.php';
 
+// Include config file
+require_once "config.php";
+$errors = [];
+
 function debug_to_console($data)
 {
     echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
 }
 
-// Include config file
-require_once "config.php";
 
 // Define variables and initialize with empty values
 $firstName = $lastName = $email = $userName = $password = $confirm_password = "";
-$firstName_err = $lastName_err = $email_err =  $username_err = $password_err = $confirm_password_err = "";
+$firstName_err = $lastName_err = $email_err =  $username_err = $password_err = $confirm_password_err = $mailSending_err = "";
 
 //$mail = new PHPMailer\PHPMailer\PHPMailer();
 
@@ -32,11 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($firstName))
     {
         $firstName_err = "Please enter a first name";
+        array_push($errors, $firstName_err);
     }
     else if (!preg_match('/^[a-zA-Z ]*$/', $firstName))
     {
-
         $firstName_err = "First name can include only letters.";
+        array_push($errors, $firstName_err);
         debug_to_console($firstName_err);
     }
     else
@@ -49,10 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($lastName))
     {
         $lastName_err = "Please enter a last name";
+        array_push($errors, $lastName_err);
     }
     else if (!preg_match('/^[a-zA-Z ]*$/', $lastName))
     {
         $lastName_err = "Last name can include only letters.";
+        array_push($errors, $lastName_err);
         debug_to_console($lastName_err);
     }
     else
@@ -60,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         debug_to_console("Lastname validated");
         $_SESSION['lastName'] = $lastName;
     }
-
 
     //validate email
     if (empty($email))
@@ -70,8 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     else if (!empty($email) && (filter_var($email, FILTER_VALIDATE_EMAIL) === false))
     {
-        debug_to_console($email);
         $email_err = "Please enter a valid email.";
+        array_push($errors, $email_err);
         debug_to_console($email_err);
     }
     else
@@ -84,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         if (mysqli_num_rows($result) != 0)
         {
             $email_err = "Email already registered";
+            array_push($errors, $email_err);
             debug_to_console($email_err);
         }
         else
@@ -98,11 +103,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($userName))
     {
         $username_err = "Please enter a username.";
+        array_push($errors, $username_err);
         debug_to_console($username_err);
     }
     elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $userName))
     {
         $username_err = "Username can only contain letters, numbers, and underscores.";
+        array_push($errors, $username_err);
         debug_to_console($username_err);
     }
     else
@@ -114,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         if (mysqli_num_rows($checkUsername) != 0)
         {
             $username_err = "This username is already taken.";
+            array_push($errors, $username_err);
             debug_to_console($username_err);
         }
         else
@@ -126,10 +134,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($password))
     {
         $password_err = "Please enter a password.";
+        array_push($errors, $password_err);
     }
     elseif (strlen($password) < 6)
     {
         $password_err = "Password must have atleast 6 characters.";
+        array_push($errors, $password_err);
         debug_to_console($password_err);
     }
     else
@@ -141,21 +151,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($confirm_password))
     {
         $confirm_password_err = "Please confirm password.";
+        array_push($errors, $confirm_password_err);
     }
     else
     {
         if (empty($password_err) && ($password != $confirm_password))
         {
             $confirm_password_err = "Password did not match.";
+            array_push($errors, $confirm_password_err);
             debug_to_console($password_err);
         }
     }
 
-    // Check input errors before inserting in database
-    /*
-    echo "<br>Check error fields<br>";
-    echo "fN" . $firstName_err . ", lN " . $lastName_err . ", email " . $email_err . ", uN " . $username_err . ", password_err " . $password_err . ", cP " . $confirm_password_err;
-    */
     if (empty($firstName_err) && (empty($lastName_err) && (empty($email_err) &&
         (empty($username_err) && empty($password_err) && empty($confirm_password_err)))))
     {
@@ -180,6 +187,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         if (!$mail->Send())
         {
             debug_to_console("mail sending failed");
+            $mailSending_err = "main sending failed";
+            array_push($errors, $mailSending_err);
             var_dump($mail);
         }
         else
@@ -196,25 +205,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         debug_to_console("Some error fields are not empty");
     }
 
-    // Close connection
     mysqli_close($link);
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="./css/style.css">-->
-    <title>PHP User Registration System Example</title>
-    <!-- jQuery + Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>New user registration</title>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" href="css/control.css">
 </head>
+
+<?php
+require "../inc/header.php";
+?>
 
 <body>
     <div class="App">
@@ -272,27 +278,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     </div>
 </body>
 
-
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>
-
+<script src="validoi.js"></script>
 
 </html>
