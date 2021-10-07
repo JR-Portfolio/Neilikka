@@ -2,8 +2,17 @@
 <html>
 
 <?php
-require 'inc/header.php';
+    require 'inc/header.php';
 ?>
+<head>
+    <title>Yhteydenotto</title>
+    <link rel="stylesheet" href="css/neilikka.css">
+</head>
+<script>
+        $(function() {
+            $(".navibar").load("navi.html");
+        });
+    </script>
 
 <body>
     <div class="navibar"></div>
@@ -42,10 +51,12 @@ require 'inc/header.php';
             </div>
 
 
+
             <div class="form-check my-2">
-                <input type="checkbox" name="newsletter " id="news" selected></input>
-                <label for "newsletter " class="form-check-label">Haluan tilata Puutarhaliike Neilikan uutiskirjeen</label>
+                <label for "newsletter " class="form-check-label">Haluan tilata Puutarhaliike Neilikan uutiskirjeen
+                <input type="checkbox" name="newsletter " id="news" selected></input></label>
             </div>
+
 
             <button class="btn mt-3 btn btn-primary " type="submit">Sign in</button>
 

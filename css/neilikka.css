@@ -7,49 +7,49 @@ color:gray;
 color: var(--gray);
 !important priorisoi määrityksen
 */
-
+    
     .nav-top-right {
         display: inline-flex;
         align-items: flex-end;
     }
-
+    
     .loggari {
         margin-top: 10px;
     }
-
+    
     .main {
         float: left;
         width: 60%;
     }
-
+    
     .ostoskori {
         display: block;
         float: right;
         width: 40%;
     }
-
+    
     #btn-poista {
         float: right;
         margin-right: 10px;
     }
-
+    
     .kuva {
         width: 110px;
         height: 90px;
         border-radius: 10px;
     }
-
+    
     #maara {
         margin-top: 30px;
         margin-left: 0;
         width: 30px;
         float: left;
     }
-
+    
     .kortit {
         margin-left: 100px;
     }
-
+    
     .footer-bottom {
         position: absolute;
         left: 0;
@@ -60,14 +60,14 @@ color: var(--gray);
         text-align: center;
         margin: auto;
     }
-
+    
     .checkout {
         position: absolute;
         top: 0;
         right: 0;
         margin-right: 5px;
     }
-
+    
     #tilanne {
         border: 1px;
         width: 100;
@@ -76,7 +76,7 @@ color: var(--gray);
         right: 0;
     }
     /*Neilikka Image gallery specific changes*/
-
+    
     .products {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -86,7 +86,7 @@ color: var(--gray);
         margin: 0 auto;
         justify-content: center;
     }
-
+    
     .content {
         display: grid;
         border: 2px solid black;
@@ -94,7 +94,7 @@ color: var(--gray);
         margin-top: 20px;
         padding: 10px;
     }
-
+    
     .ostosnappi {
         display: block;
         margin-left: auto;
@@ -103,32 +103,32 @@ color: var(--gray);
         width: 40px;
         height: 30px;
     }
-
+    
     #products #a {
         background-color: chartreuse;
     }
-
+    
     div.kuvaus {
         padding: 10px;
         text-align: justify;
     }
-
+    
     div.hinta {
         text-align: center;
     }
-
+    
     .otsikko {
         text-align: center;
         padding-top: 10px;
         margin: auto;
         clear: both;
     }
-
+    
     .clear {
         clear: both;
     }
     /*Etusivu ja tietoja meistä. Määritykset säätää tekstit nav barin mukaisesti, hieman hc:ta mukana*/
-
+    
     div.blocktext {
         display: block;
         margin-top: 100px;
@@ -136,12 +136,12 @@ color: var(--gray);
         width: 25em;
         text-align: justify;
     }
-
+    
     div.blocktext h3 {
         margin-bottom: 40px;
         text-align: justify;
     }
-
+    
     .wrapper {
         display: block;
         width: fit-content;
@@ -149,68 +149,68 @@ color: var(--gray);
         margin: auto;
         background-color: none;
     }
-
+    
     .frame {
         display: flex;
         margin: auto;
     }
-
+    
     div.Myymalat td {
         column-gap: 40px;
     }
-
+    
     div.Myymalat {
         margin-top: 100px;
         z-index: 1;
         padding-right: 20px;
         padding-left: 20px;
     }
-
+    
     div.Myymalat>th p {
         margin-left: 20px;
         text-align: left;
     }
-
+    
     h3 {
         font-family: 'Raleway', sans-serif;
         font-weight: 700;
     }
-
+    
     p {
         font-family: 'Raleway', sans-serif;
         font-weight: 700;
     }
-
+    
     h4 {
         font-family: 'Raleway', sans-serif;
         font-weight: 700;
     }
-
+    
     address {
         font-family: 'Raleway', sans-serif;
         font-weight: 700;
     }
-
+    
     body {
         margin: 50, auto;
         /*background-image: url('../img/tausta.jpg');*/
         background-color: lightsteelblue;
         background-size: cover;
     }
-
+    
     table {
         border-style: solid;
         border-width: 1px;
     }
-
+    
     tr td th {
         border-style: solid;
     }
-
+    
     legend {
         margin-left: -12px;
     }
-
+    
     fieldset.scheduler-border {
         border: 1px groove #ddd !important;
         padding: 0 1.4em 1.4em 1.4em !important;
@@ -218,35 +218,36 @@ color: var(--gray);
         -webkit-box-shadow: 0px 0px 0px 0px #000;
         box-shadow: 0px 0px 0px 0px #000;
     }
-
+    
     fieldset {
         background-color: azure;
         width: fit-content;
         margin: auto;
     }
-
+    
     legend {
         margin-left: 0px;
     }
-
+    
     #news {
+        border-color: black;
         width: fit-content;
         margin: 5px 0px;
         float: right;
         margin-left: 10px;
     }
-
+    
     input[type='radio'] {
         vertical-align: left;
         position: relative;
     }
-
+    
     label {
         margin-left: 20px;
         padding-left: 15px;
         text-indent: -15px;
     }
-
+    
     input {
         width: 60px;
         height: 13px;
@@ -257,7 +258,7 @@ color: var(--gray);
         top: 0px;
         *overflow: hidden;
     }
-
+    
     textarea {
         padding-left: 5px;
         padding-right: 5px;
@@ -265,33 +266,33 @@ color: var(--gray);
         padding-bottom: 5px;
         margin-left: 0px;
     }
-
+    
     fieldset {
         padding-left: 10px;
         background-color: grey;
         height: 80%;
     }
-
+    
     .sFormi {
         padding-left: 5px;
         width: auto;
         text-align: left;
     }
-
+    
     @media (min-width: 576px) {
         .sailio {
             max-width: 500px;
             margin: 1.75rem auto;
         }
     }
-
+    
     @media (min-width: 992px) {
         .sailio {
             max-width: 900px;
             margin: 1.75rem auto;
         }
     }
-
+    
     @media (min-width: 1200px) {
         .sailio {
             max-width: 1200px;
