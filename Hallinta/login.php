@@ -107,7 +107,7 @@
                                                 echo $_SESSION["firstName"];
                                                 $_SESSION["username"] = $username;
 
-$cookie1 ="username";
+                                                $cookie1 = "username";
 
                                                 if (isset($_POST['cb']))
                                                 {
@@ -188,13 +188,13 @@ $cookie1 ="username";
 
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" name="username" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                                    <input type="text" name="username" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php ($_COOKIE['username']) ? $_COOKIE['username'] : ''; ?>">
                                     <span class="invalid-feedback"><?php echo $username_err; ?></span>
                                     <span class="valid-feedback">Looks good</span>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" name="password" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                                    <input type="password" name="password" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php isset($_COOKIE['password']) ? $_COOKIE['password'] : ''; ?>">
                                     <span class="invalid-feedback"><?php echo $password_err; ?></span>
                                     <span class="valid-feedback">Looks good</span>
                                 </div>

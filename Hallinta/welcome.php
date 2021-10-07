@@ -16,7 +16,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 <?php require '../inc/header.php'; ?>
 
 <head>
-    <title>Nelikan Kotisivut</title>
+    <title>Neilikan Kotisivut</title>
     <link rel="stylesheet" href="../css/neilikka.css">
     <link rel="stylesheet" href="css/welcome.css">
 </head>
