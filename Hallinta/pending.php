@@ -20,7 +20,7 @@
     <div class="container">
         <div class="jumbotron text-center" style = "margin-top:100px;">
         <div class="col-12 mb-5 text-center" >
-            <h1 class="display-9">Email verification on it's way,<br>pls check and activate your account.</h1>
+            <h1 class="display-9">Email verification on it's way,<br>you have 5 minutes until link expires.</h1>
             <script>
                   setTimeout(() => {window.location.href = "http://localhost/Neilikka/Hallinta/login.php";}, 2500);
               </script>

@@ -67,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION['verificationTime'] = $time;
             debug_to_console("mail sent");
             // Redirect to login page
-            $pos = strpos($email, "@");
-            $domain = substr($email, $pos + 1);
+            //$pos = strpos($email, "@");
+            //$domain = substr($email, $pos + 1);
             header("location: pending.php");
         }
     }

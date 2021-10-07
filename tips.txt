@@ -18,6 +18,8 @@ Kaikki lomakkeen kentät voi lähettää samalla kutsulla post muuttujilla.
 - var_export esittää taulukon taulukon näköisen, implode purkaa merkkijonoksi.
 - https://www.php.net/manual/en/function.basename.php, basenamellä tiedoston nimi.
   esim. $filename = basename(__FILE__);
+- $_SERVER['next page'] = $_SERVER['PHP_SELF'];
+- $_SESSION = array(); session_destroy();
 
 Debugger:
 __FUNCTION__  // kertoo missä ja mistä päin kutsuttu,
