@@ -42,12 +42,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         // Send email to user with the token in a link they can click on
         require 'mailerConfig.php';
-        $msg = "Hi there, click on this <a href=\"http://localhost/Neilikka/Hallinta/newPassword.php?token=" . $token . "\">link</a> to reset your password on our site";
+        //$msg = "Hi there, click on this <a href=\"new_password.php?token=" . $token . "\">link</a> to reset your password on our site";
+
+        $pos = strpos($email, "@");
+        $user = substr($email, 0, $pos);
+
+        $msg = "<h3>Hi " .$user. "</h3><p><span>Reset your password via <a href=\"http://localhost/Neilikka/Hallinta/newPassword.php?token=". $token . ".\">here</a>
+        <p><strong>Note</strong> reset link expires in 5 minutes.<p>Best Regards,<br>Nelikka Admin Robot</span>";
         $msg = wordwrap($msg, 70);
 
         $mail->setFrom('noreply@neilikka.com', 'Dear receipant');
-        $mail->addAddress($email, 'Dear receipant');
+
+        $mail->addAddress($email, 'Dear recipient');
         $mail->MsgHTML($msg);
+
         if (!$mail->Send())
         {
             debug_to_console("mail sending failed");
@@ -55,6 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
         else
         {
+            $time  = date('i');
+            $_SESSION['verificationTime'] = $time;
             debug_to_console("mail sent");
             // Redirect to login page
             $pos = strpos($email, "@");

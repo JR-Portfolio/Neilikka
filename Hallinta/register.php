@@ -98,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
     }
 
-
     // Validate username
     if (empty($userName))
     {
@@ -179,9 +178,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         debug_to_console($token);
         //send mail verification
-        $msg = 'Click on the activation link to verify your email. <br><br>
-                  <a href="http://localhost/user_verification.php?token=' . $token . '"> Click here to verify email</a>
-                ';
+
+        $content = 'Click on the activation link to verify your email. <br><br>
+                <a href="http://localhost/Neilikka/Hallinta/user_verificatIon.php?token='.$token.'">Click here to verify email</a>';
 
         $mail->MsgHTML($content);
         if (!$mail->Send())
@@ -205,6 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         debug_to_console("Some error fields are not empty");
     }
 
+    require 'errors.php';
     mysqli_close($link);
 }
 ?>
