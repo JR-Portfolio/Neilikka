@@ -11,7 +11,7 @@
 
 //Azure url 'https://jounir.azurewebsites.net 
 //xampp url http://localhost/Neilikka
-define('URL', 'https://jounir.azurewebsites.net');
+define('URL', 'http://localhost/Neilikka');
 
 
 define('LOCAL_SERVER', 'localhost');
@@ -24,10 +24,10 @@ define('AZURE_USERNAME', 'azure');
 define('AZURE_PASSWORD', '6#vWHD_$');
 define('AZURE_DATABASE','neilikka');
 
-$un = AZURE_USERNAME;
-$ps = AZURE_PASSWORD;
-$server = AZURE_SERVER;
-$database = AZURE_DATABASE;
+$un =LOCAL_USERNAME;
+$ps =LOCAL_PASSWORD;
+$server = LOCAL_SERVER;
+$database = LOCAL_DATABASE;
 
 //show all erros if any
 ini_set('display_errors', 1);

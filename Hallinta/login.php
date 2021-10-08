@@ -188,7 +188,7 @@
 
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" name="username" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php ($_COOKIE['username']) ? $_COOKIE['username'] : ''; ?>">
+                                    <input type="text" name="username" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?> value="<?php isset($_COOKIE['username']) ? $_COOKIE['username'] : ''; ?>">
                                     <span class="invalid-feedback"><?php echo $username_err; ?></span>
                                     <span class="valid-feedback">Looks good</span>
                                 </div>
