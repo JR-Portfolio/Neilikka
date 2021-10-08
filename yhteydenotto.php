@@ -2,17 +2,18 @@
 <html>
 
 <?php
-    require 'inc/header.php';
+require 'inc/header.php';
 ?>
+
 <head>
     <title>Yhteydenotto</title>
     <link rel="stylesheet" href="css/neilikka.css">
 </head>
 <script>
-        $(function() {
-            $(".navibar").load("navi.html");
-        });
-    </script>
+    $(function() {
+        $(".navibar").load("navi.php");
+    });
+</script>
 
 <body>
     <div class="navibar"></div>
@@ -24,7 +25,7 @@
             Yhteydenotto
         </h3>
         <span class="sm">Puhelimitse myymälöihin, asiakaspalvelu@puutarhaliikeneilikka.fi
-        <br> tai alla olevalla lomakkeella</span>
+            <br> tai alla olevalla lomakkeella</span>
 
         <form>
             <div class=" form-group my-2 ">
@@ -40,9 +41,9 @@
             <div class="form-group my-2">
                 <label for="yhteydenotto ">Yhteydenoton syy:</label>
                 <select class="form-select " id="autoSizingSelect " name="yhteydenpito ">
-                        <option value="Ruusuja " selected>Ruusuja</option>
-                        <option value="muu ">Risuja</option>
-                    </select>
+                    <option value="Ruusuja " selected>Ruusuja</option>
+                    <option value="muu ">Risuja</option>
+                </select>
             </div>
 
             <div class="form-group my-2 ">
@@ -54,7 +55,7 @@
 
             <div class="form-check my-2">
                 <label for "newsletter " class="form-check-label">Haluan tilata Puutarhaliike Neilikan uutiskirjeen
-                <input type="checkbox" name="newsletter " id="news" selected></input></label>
+                    <input type="checkbox" name="newsletter " id="news" selected></input></label>
             </div>
 
 
