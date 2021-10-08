@@ -32,7 +32,7 @@ require 'inc/header.php';
             <div class="collapse navbar-collapse" id="myDrops">
 
                 <ul class="nav navbar-nav mx-auto">
-                    <?php echo "<li class='active'><a href=" . AURL . "/index.html>Etusivu</a></li> ?>"; ?>
+                    <?php echo "<li class='active'><a href=" . AURL . "/index.php>Etusivu</a></li> ?>"; ?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuotteet <span class="caret"></span></a>
                         <ul class="dropdown-menu">

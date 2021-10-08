@@ -3,8 +3,8 @@
 <html>
 
 <?php
-    require 'Hallinta/config.php';
-    require 'inc/header.php';
+    require '../Hallinta/config.php';
+    require '../inc/header.php';
 ?>
 
 <head>
