@@ -23,7 +23,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 
 <script>
     $(function() {
-        $(".navibar").load("../naviLoggedIn.html");
+        $(".navibar").load("../naviLoggedIn.php");
     });
 </script>
 
@@ -43,10 +43,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
     {
         $username = $_COOKIE['username'];
     }
-
-
     ?>
-
 
     <div class="navibar"></div>
     <h1>Welcome <?php echo $_SESSION['firstName']; ?></h1>

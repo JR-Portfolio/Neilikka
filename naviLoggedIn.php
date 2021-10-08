@@ -56,7 +56,7 @@
 
 
                 <ul class="mr-auto loggari">
-                <?php "<a class='nav-link' href=http://" . URL ."/Hallinta/logout.php>Logout</a>"?>
+                <?php echo "<a class='nav-link' href=" . URL . "/Hallinta/logout.php>Logout</a>"?>
                 </ul>
                 </ul>
             </div>

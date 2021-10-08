@@ -106,8 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <head>
     <!--script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" href="css/control.css">
+    <?php require '../inc/header.php'  ?>
 </head>
-<?php require '../inc/header.php'  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -116,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <meta charset="UTF-8">
     <title>Change password</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/control.css">
 </head>
 
 <body>
