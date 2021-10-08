@@ -9,7 +9,7 @@
   <?php
 
 
-//Azure url 'https://jounir.azurewebsites.net 
+//Azure url 'https://jounir.azurewebsites.net
 //xampp url http://localhost/Neilikka
 define('URL', 'http://localhost/Neilikka');
 
@@ -24,8 +24,8 @@ define('AZURE_USERNAME', 'azure');
 define('AZURE_PASSWORD', '6#vWHD_$');
 define('AZURE_DATABASE','neilikka');
 
-$un =LOCAL_USERNAME;
-$ps =LOCAL_PASSWORD;
+$un = LOCAL_USERNAME;
+$ps = LOCAL_PASSWORD;
 $server = LOCAL_SERVER;
 $database = LOCAL_DATABASE;
 

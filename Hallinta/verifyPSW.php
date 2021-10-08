@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head><title>Reset Password - verify email</title></head>
+
+<head>
+    <title>Reset Password - verify email</title>
+    <link rel="stylesheet" href="css/control.css">
+    <?php
+    require 'config.php';
+    require '../inc/header.php';
+    ?>
+</head>
+
 <?php
 function debug_to_console($data)
 {
@@ -8,9 +17,6 @@ function debug_to_console($data)
 }
 
 (session_status() === PHP_SESSION_NONE) ? session_start() : debug_to_console("session already started");
-
-require 'config.php';
-require '../inc/header.php';
 
 $email = $email_err = "";
 $errors = [];
@@ -20,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     debug_to_console("submit clicked");
     $email = mysqli_real_escape_string($link, $_POST['email']);
-    debug_to_console($email);
 
     //check if email exist
     debug_to_console("email validated, checking if email already registered");
@@ -38,7 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         //udpate token to users table and not to new table.
         $updToken = "UPDATE users set token = '$token' WHERE email = '$email'";
-        $result = mysqli_query($link, $updToken) or die ('Updating token failed '. $updToken); mysqli_error($link);
+        $result = mysqli_query($link, $updToken) or die('Updating token failed ' . $updToken);
+        mysqli_error($link);
 
         // Send email to user with the token in a link they can click on
         require 'mailerConfig.php';
@@ -47,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $pos = strpos($email, "@");
         $user = substr($email, 0, $pos);
 
-        $msg = "<h3>Hi " .$user. "</h3><p><span>Reset your password via <a href=\"http://localhost/Neilikka/Hallinta/newPassword.php?token=". $token . ".\">here</a>
+        $msg = "<h3>Hi " . $user . "</h3><p><span>Reset your password via <a href=\"http://localhost/Neilikka/Hallinta/newPassword.php?token=" . $token . ".\">here</a>
         <p><strong>Note</strong> reset link expires in 5 minutes.<p>Best Regards,<br>Nelikka Admin Robot</span>";
         $msg = wordwrap($msg, 70);
 
@@ -79,28 +85,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         array_push($errors, $email_err);
     }
 }
-
 ?>
 
-<body>
-    <div class="container mt-5">
-        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-            <h1 class="display-6 py-2 text-truncate">Password Reset Form</h1>
-            <div class="px-2">
-                <form method="post" class="justify-content-center">
-                    <div class="form-group row">
-                        <label class="sr-only" for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="username@domain.org" value="jriimala@gmail.com">
-                    </div>
 
-                    <div class="form-group mt-5">
+<body>
+
+    <div class="App">
+        <div class="vertical-center">
+            <div class="inner-block">
+                <h2>Reset Password</h2>
+                <p>Fill your password</p>
+                <form method = "post">
+                    <div class="form-group row my-5">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" name = "email" id="staticEmail" value="jriimala@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-primary" value="Verify">
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
