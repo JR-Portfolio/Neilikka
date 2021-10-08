@@ -9,7 +9,7 @@
   <?php
 
 define('URL', 'http://localhost/Neilikka');
-define('AURL', 'https://jounir.azurewebsites.net/');
+define('AURL', 'https://jounir.azurewebsites.net');
 
 define('LOCAL_SERVER', 'localhost');
 define('LOCAL_DATABASE','jrla');
