@@ -1,19 +1,20 @@
 <!-- Support changing password manually or via generator, if generator chosen then user is presented passowrd in plain text-->
 <?php
+function debug_to_console($data)
+{
+    echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
+}
+
 if (session_status() == PHP_SESSION_NONE)
 {
     session_start();
 }
+
 $token = $_SESSION['token'];
 $errors = [];
 
 require 'config.php';
 require 'mailerConfig.php';
-
-function debug_to_console($data)
-{
-    echo "<script>console.log('Debug: " . json_encode($data) . "' );</script>";
-}
 
 $verificationStarted = $_SESSION['startTime'];
 $now = Date('H:i');

@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $pos = strpos($email, "@");
         $user = substr($email, 0, $pos);
 
-        $msg = "<h3>Hi " . $user . "</h3><p><span>Reset your password via <a href=\"http://localhost/Neilikka/Hallinta/newPassword.php?token=" . $token . ".\">here</a>
+        $msg = "<h3>Hi " . $user . "</h3><p><span>Reset your password via <a href=" .URL. "/newPassword.php?token=" . $token . ">here</a>
         <p><strong>Note</strong> reset link expires in 5 minutes.<p>Best Regards,<br>Nelikka Admin Robot</span>";
         $msg = wordwrap($msg, 70);
 
