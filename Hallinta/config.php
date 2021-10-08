@@ -8,13 +8,24 @@
 
   <?php
 
-  define('AURL', 'http://localhost/Neilikka');
-  define('AAURL', 'https://jounir.azurewebsites.net/');
+define('URL', 'http://localhost/Neilikka');
+define('AURL', 'https://jounir.azurewebsites.net/');
 
-  $un = "root";
-  $ps = "";
-  $server = "localhost";
-  $database = "jrla";
+define('LOCAL_SERVER', 'localhost');
+define('LOCAL_DATABASE','jrla');
+define('LOCAL_USERNAME', 'root');
+define('LOCAL_PASSWORD', '');
+
+define('AZURE_SERVER', 'localhost:52365');
+define('AZURE_USERNAME', 'azure');
+define('AZURE_PASSWORD', '6#vWHD_$');
+define('AZURE_DATABASE','neilikka');
+
+$un = AZURE_USERNAME;
+$ps = AZURE_PASSWORD;
+$server = AZURE_SERVER;
+$database = AZURE_DATABASE;
+
 
   //show all erros if any
   ini_set('display_errors', 1);
