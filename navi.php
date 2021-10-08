@@ -32,27 +32,27 @@ require 'inc/header.php';
             <div class="collapse navbar-collapse" id="myDrops">
 
                 <ul class="nav navbar-nav mx-auto">
-                    <?php echo "<li class='active'><a href=" . AURL . "/index.php>Etusivu</a></li> ?>"; ?>
+                    <?php echo "<li class='active'><a href=" . URL . "/index.php>Etusivu</a></li> ?>"; ?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuotteet <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php
-                            echo "<li><a href=" . AURL . "/Sisäkasvit/" . ">Sisäkasvit</a></li>";
-                            echo "<li><a href=" . AURL . "/Ulkokasvit>Ulkokasvit</a></li>";
-                            echo "<li><a href=" . AURL .  "/Valineet/>Työkalut</a></li>";
-                            echo "<li><a href=" . AURL .  "/Hoito/>Kasvien hoito</a></li>";
+                            echo "<li><a href=" . URL . "/Sisäkasvit/" . ">Sisäkasvit</a></li>";
+                            echo "<li><a href=" . URL . "/Ulkokasvit>Ulkokasvit</a></li>";
+                            echo "<li><a href=" . URL .  "/Valineet/>Työkalut</a></li>";
+                            echo "<li><a href=" . URL .  "/Hoito/>Kasvien hoito</a></li>";
                             echo "</ul>";
-                            echo "<li><a href=" . AURL .  "/Myymalat.html>Myymälät</a></li>";
-                            echo "<li><a href=" . AURL .  "/Me.html>Tietoa meistä</a></li>";
-                            echo "<li><a href=" . AURL .  "/yhteydenotto.php>Ota yhteyttä</a></li>";
+                            echo "<li><a href=" . URL .  "/Myymalat.php>Myymälät</a></li>";
+                            echo "<li><a href=" . URL .  "/Me.php>Tietoa meistä</a></li>";
+                            echo "<li><a href=" . URL .  "/yhteydenotto.php>Ota yhteyttä</a></li>";
                             ?>
                         </ul>
 
 
                         <ul class="mr-auto loggari">
                             <?php
-                            echo "<a class='nav-link' href='AURL/Hallinta/login.php'>Login /</a>";
-                            echo "<a class='nav-link' href='AURL/Hallinta/register.php'> Register</a>";
+                            echo "<a class='nav-link' href='URL/Hallinta/login.php'>Login /</a>";
+                            echo "<a class='nav-link' href='URL/Hallinta/register.php'> Register</a>";
                             ?>
                         </ul>
                 </ul>
@@ -70,10 +70,10 @@ require 'inc/header.php';
 
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{ AURL('/login') }}">Login</a>
+        <a class="nav-link" href="{{ URL('/login') }}">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ AURL('/register') }}">Register</a>
+        <a class="nav-link" href="{{ URL('/register') }}">Register</a>
       </li>
     </ul>
 -->

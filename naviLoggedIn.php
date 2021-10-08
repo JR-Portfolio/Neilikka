@@ -38,25 +38,25 @@
             <div class="collapse navbar-collapse" id="myDrops">
 
             <ul class="nav navbar-nav mx-auto">
-                    <?php echo "<li class='active'><a href=" . AURL . "/index.html>Etusivu</a></li> ?>"; ?>
+                    <?php echo "<li class='active'><a href=" . URL . "/index.html>Etusivu</a></li> ?>"; ?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuotteet <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php
-                            echo "<li><a href=" . AURL . "/Sisäkasvit/" . ">Sisäkasvit</a></li>";
-                            echo "<li><a href=" . AURL . "/Ulkokasvit>Ulkokasvit</a></li>";
-                            echo "<li><a href=" . AURL .  "/Valineet/>Työkalut</a></li>";
-                            echo "<li><a href=" . AURL .  "/Hoito/>Kasvien hoito</a></li>";
+                            echo "<li><a href=" . URL . "/Sisäkasvit/" . ">Sisäkasvit</a></li>";
+                            echo "<li><a href=" . URL . "/Ulkokasvit>Ulkokasvit</a></li>";
+                            echo "<li><a href=" . URL .  "/Valineet/>Työkalut</a></li>";
+                            echo "<li><a href=" . URL .  "/Hoito/>Kasvien hoito</a></li>";
                             echo "</ul>";
-                            echo "<li><a href=" . AURL .  "/Myymalat.html>Myymälät</a></li>";
-                            echo "<li><a href=" . AURL .  "/Me.html>Tietoa meistä</a></li>";
-                            echo "<li><a href=" . AURL .  "/yhteydenotto.php>Ota yhteyttä</a></li>";
+                            echo "<li><a href=" . URL .  "/Myymalat.php>Myymälät</a></li>";
+                            echo "<li><a href=" . URL .  "/Me.php>Tietoa meistä</a></li>";
+                            echo "<li><a href=" . URL .  "/yhteydenotto.php>Ota yhteyttä</a></li>";
                             ?>
                         </ul>
 
 
                 <ul class="mr-auto loggari">
-                <?php "<a class='nav-link' href=http://" . AURL ."/Hallinta/logout.php>Logout</a>"?>
+                <?php "<a class='nav-link' href=http://" . URL ."/Hallinta/logout.php>Logout</a>"?>
                 </ul>
                 </ul>
             </div>
