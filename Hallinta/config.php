@@ -8,8 +8,8 @@
 
   <?php
 
-  define('AURL', 'http://localhost/Neilikka');
-  define('AAURL', 'https://jounir.azurewebsites.net/');
+  define('URL', 'http://localhost/Neilikka');
+  define('AURL', 'https://jounir.azurewebsites.net/');
 
 
   define('LOCAL_SERVER', 'localhost');
