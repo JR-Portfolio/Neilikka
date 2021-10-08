@@ -1,36 +1,41 @@
 <html>
+
 <HEAD>
   <!--LINK href="master.css" rel="stylesheet" type="text/css"-->
 </HEAD>
+
 <body>
 
-<?php
+  <?php
 
-define('URL', 'http://localhost/Neilikka');
+  define('AURL', 'http://localhost/Neilikka');
+  define('AAURL', 'https://jounir.azurewebsites.net/');
 
-$un = "root";
-$ps = "";
-$server = "localhost";
-$database = "jrla";
+  $un = "root";
+  $ps = "";
+  $server = "localhost";
+  $database = "jrla";
 
-//show all erros if any
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+  //show all erros if any
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
 
 
-// Create connection to DB
-$link = new mysqli($server, $un, $ps, $database);
-// Check connection
-if ($link->connect_error) {
+  // Create connection to DB
+  $link = new mysqli($server, $un, $ps, $database);
+  // Check connection
+  if ($link->connect_error)
+  {
     print "connection error";
     die("Connection failed: " . $link->connect_error);
-}
+  }
 
-//print "connected";
+  //print "connected";
 
 
-?>
+  ?>
 
 </body>
+
 </html>

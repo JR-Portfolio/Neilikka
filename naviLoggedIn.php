@@ -2,6 +2,11 @@
 
 <html>
 
+<?php
+  require 'Hallinta/config.php';
+  require 'inc/header.php';
+?>
+
 <head>
     <title>Nelikan Kotisivut</title>
     <meta charset="utf-8">
@@ -32,24 +37,26 @@
             </div>
             <div class="collapse navbar-collapse" id="myDrops">
 
-                <ul class="nav navbar-nav mx-auto">
-                    <li class="active"><a href="http://localhost/Neilikka/index.html">Etusivu</a></li>
+            <ul class="nav navbar-nav mx-auto">
+                    <?php echo "<li class='active'><a href=" . AURL . "/index.html>Etusivu</a></li> ?>"; ?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuotteet <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="http://localhost/Neilikka/Sisäkasvit/">Sisäkasvit</a></li>
-                            <li><a href="http://localhost/Neilikka/Ulkokasvit">Ulkokasvit</a></li>
-                            <li><a href="http://localhost/Neilikka/Valineet/">Työkalut</a></li>
-                            <li><a href="http://localhost/Neilikka/Hoito/">Kasvien hoito</a></li>
+                            <?php
+                            echo "<li><a href=" . AURL . "/Sisäkasvit/" . ">Sisäkasvit</a></li>";
+                            echo "<li><a href=" . AURL . "/Ulkokasvit>Ulkokasvit</a></li>";
+                            echo "<li><a href=" . AURL .  "/Valineet/>Työkalut</a></li>";
+                            echo "<li><a href=" . AURL .  "/Hoito/>Kasvien hoito</a></li>";
+                            echo "</ul>";
+                            echo "<li><a href=" . AURL .  "/Myymalat.html>Myymälät</a></li>";
+                            echo "<li><a href=" . AURL .  "/Me.html>Tietoa meistä</a></li>";
+                            echo "<li><a href=" . AURL .  "/yhteydenotto.php>Ota yhteyttä</a></li>";
+                            ?>
                         </ul>
-                        <li><a href="http://localhost/Neilikka/Myymalat.html">Myymälät</a></li>
-                        <li><a href="http://localhost/Neilikka/Me.html">Tietoa meistä</a></li>
-                        <li><a href="http://localhost/Neilikka/yhteydenotto.php">Ota yhteyttä</a></li>
-                </ul>
 
 
                 <ul class="mr-auto loggari">
-                    <a class="nav-link" href="http://localhost/Neilikka/Hallinta/logout.php">Logout</a>
+                <?php "<a class='nav-link' href=http://" . AURL ."/Hallinta/logout.php>Logout</a>"?>
                 </ul>
                 </ul>
             </div>

@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<!--<input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-1:18
-Ja tätä varten piti laittaa tämä koodi sinne ylös.
-1:18
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
 <html>
+
+<?php
+    require '../Hallinta/config.php';
+    require '../inc/header.php';
+?>
 
 <head>
     <title>Nelikan Kotisivut</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/neilikka.css">
     <script>
         $(function() {
-            $(".navibar").load("../navi.html");
+            $(".navibar").load("../navi.php");
         });
     </script>
 </head>

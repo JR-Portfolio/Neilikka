@@ -18,3 +18,6 @@ echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
 echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
 echo "<link href='https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway&display=swap' rel='stylesheet'>";
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>";
+echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+echo "<link href='https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway&display=swap' rel='stylesheet'>";
