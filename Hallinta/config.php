@@ -11,10 +11,19 @@
   define('AURL', 'http://localhost/Neilikka');
   define('AAURL', 'https://jounir.azurewebsites.net/');
 
-  $un = "root";
-  $ps = "";
-  $server = "localhost";
-  $database = "jrla";
+
+  define('LOCAL_SERVER', 'localhost');
+  define('LOCAL_DATABASE','jrla');
+
+  define('AZURE_SERVER', 'localhost:52365');
+  define('USERNAME', 'root');
+  define('PASSWORD', '');
+  define('DATABASE','neilikka');
+
+  $un = USERNAME;
+  $ps = PASSWORD;
+  $server = AZURE_SERVER;
+  $database = DATABASE;
 
   //show all erros if any
   ini_set('display_errors', 1);
