@@ -26,7 +26,6 @@ $ps = AZURE_PASSWORD;
 $server = AZURE_SERVER;
 $database = AZURE_DATABASE;
 
-
   //show all erros if any
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
