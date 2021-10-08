@@ -51,8 +51,8 @@ require 'inc/header.php';
 
                         <ul class="mr-auto loggari">
                             <?php
-                            echo "<a class='nav-link' href='URL/Hallinta/login.php'>Login /</a>";
-                            echo "<a class='nav-link' href='URL/Hallinta/register.php'> Register</a>";
+                            echo "<a class='nav-link' href=" . URL . "/Hallinta/login.php>Login /</a>";
+                            echo "<a class='nav-link' href=" . URL . "/Hallinta/register.php> Register</a>";
                             ?>
                         </ul>
                 </ul>
